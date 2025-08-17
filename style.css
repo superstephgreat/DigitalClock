@@ -1,93 +1,129 @@
-/* ==============================
-   General
-============================== */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #0D1B2A, #1B263B, #415A77);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-  padding-top: 4rem;
+* {  
+  margin: 0;  
+  padding: 0;  
+  box-sizing: border-box;  
+  font-family: 'Poppins', sans-serif;  
+}  
+  
+body {  
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(0,123,255,0.25));  
+  min-height: 100vh;  
+  display: flex;  
+  flex-direction: column;  
+  justify-content: center;  
+  align-items: center;  
+  font-family: 'Roboto', sans-serif;
+}  
+  
+.navbar {  
+  position: fixed;  
+  bottom: 0;  
+  background: rgba(255, 255, 255, 0.9);  
+  width: 100%;  
+  padding: 1rem 0;  
+  text-align: center;  
+  display: flex;  
+  justify-content: center;  
+  gap: 2rem;  
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);  
+}  
+  
+.navbar button {  
+  font-size: 1.8rem;  
+  background: none;  
+  border: none;  
+  cursor: pointer;  
+  color: #007BFF;  
+  transition: color 0.3s, transform 0.2s;  
+}  
+
+#timer-btn.active{
+  color: #0056b3;  
+  transform: scale(1.2);
+}
+#clock-btn.active{
+  color: #0056b3;  
+  transform: scale(1.2);
 }
 
-/* ==============================
-   Digital Clock
-============================== */
-.clock {
-  font-size: 4rem;
-  font-weight: bold;
-  margin-top: 2rem;
-  text-align: center;
-}
+.navbar button:hover {  
+  color: #0056b3;  
+  transform: scale(1.2);  
+}  
+  
+.container {  
+  display: flex;  
+  flex-direction: column;  
+  align-items: center;  
+  justify-content: center;  
+  text-align: center;  
+  width: 90%;  
+  max-width: 400px;  
+  min-height: 60vh;
+}  
+  
+.timer, .clock-card, .date {  
+  display: none;  
+}  
+  
+.clock-card.active,  
+.timer.active,  
+.date.active {  
+  display: block;  
+}  
+  
+.clock-card.active,  
+.timer.active {  
+  background: rgba(255, 255, 255, 0.05);  
+  backdrop-filter: blur(12px);  
+  border-radius: 15px;  
+  padding: 2.5rem;  
+  text-align: center;  
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);  
+  margin: 2rem 0;  
+  width: 100%;  
+}  
+  
+#clock {  
+  font-size: 2rem;  
+  font-weight: 200;  
+ color: #17a2b8; 
+  letter-spacing: 2px;  
+  margin-bottom: 1rem;  
+}  
+  
+.date.active {  
+  display: block;  
+  font-size: 1.5rem;  
+  color: #000;  
+  margin-top: 1rem;  
+}  
 
-.date {
+#timer-display{
+  color: #17a2b8;
   font-size: 1.5rem;
-  margin-top: 0.5rem;
-  text-align: center;
-}
+  font-weight: 200;
+}  
+  
+.timer-buttons {  
+  margin-top: 1.5rem;  
+  display: flex;  
+  gap: 1rem;  
+  justify-content: center;  
+}  
 
-/* ==============================
-   Timer
-============================== */
-.timer {
-  margin-top: 3rem;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2rem 1.5rem;
-  border-radius: 12px;
-  width: 300px;
-  max-width: 90%;
-}
+.timer-buttons button {  
+  padding: 0.7rem 1.5rem;  
+  font-size: 1rem;  
+  border-radius: 10px;  
+  border: none;  
+  cursor: pointer;  
+  background: rgba(0, 123, 255, 0.2);  
+  color: #fff;  
+  transition: background 0.3s, transform 0.2s;  
+}  
 
-.timer h2 {
-  margin-bottom: 1rem;
-}
-
-#timer-display {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-}
-
-.timer-buttons button {
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  background: #0077ff;
-  color: #fff;
-  transition: background 0.3s;
-}
-
-.timer-buttons button:hover {
-  background: #005fcc;
-}
-
-/* ==============================
-   Responsive
-============================== */
-@media screen and (max-width: 400px) {
-  .clock {
-    font-size: 3rem;
-  }
-
-  #timer-display {
-    font-size: 2.5rem;
-  }
-
-  .timer {
-    padding: 1.5rem 1rem;
-  }
-
-  .timer-buttons button {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.9rem;
-    margin: 0.3rem;
-  }
+.timer-buttons button:hover {  
+  background: rgba(0, 123, 255, 0.5);  
+  transform: scale(1.05);  
 }

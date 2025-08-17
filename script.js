@@ -1,3 +1,36 @@
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const clockBtn = document.getElementById('clock-btn');
+  const timerBtn = document.getElementById('timer-btn');
+  const clockCard = document.getElementById('clock-card');
+  const timer = document.getElementById('timer');
+  const date = document.getElementById('date');
+
+  function showClock() {
+    clockCard.classList.add('active');
+    clockBtn.classList.add('active');
+    timerBtn.classList.remove('active');
+    date.classList.add('active');
+    timer.classList.remove('active');
+  }
+
+  function showTimer() {
+    timer.classList.add('active');
+    timerBtn.classList.add('active');
+    clockBtn.classList.remove('active');
+    clockCard.classList.remove('active');
+    date.classList.remove('active');
+  }
+
+  clockBtn.addEventListener('click', showClock);
+  timerBtn.addEventListener('click', showTimer);
+
+  // Show clock by default
+  showClock();
+});
+
+
 function updateClock() {
   const now = new Date();
 
@@ -6,7 +39,7 @@ function updateClock() {
   let seconds = now.getSeconds();
   let amPm = hours < 12 ? "AM" : "PM";
 
-  hours = hours % 12 || 12; // convert 0 -> 12
+  hours = hours % 12 || 12;
   hours = hours < 10 ? "0" + hours : hours;
   minutes = minutes < 10 ? "0" + minutes : minutes;
   seconds = seconds < 10 ? "0" + seconds : seconds;
