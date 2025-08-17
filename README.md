@@ -1,1 +1,1 @@
-# DigitalClock
+ClocknTime – A fun digital clock with a timer to keep track of your day.
