@@ -1,129 +1,150 @@
-* {  
-  margin: 0;  
-  padding: 0;  
-  box-sizing: border-box;  
-  font-family: 'Poppins', sans-serif;  
-}  
-  
-body {  
-  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(0,123,255,0.25));  
-  min-height: 100vh;  
-  display: flex;  
-  flex-direction: column;  
-  justify-content: center;  
-  align-items: center;  
-  font-family: 'Roboto', sans-serif;
-}  
-  
-.navbar {  
-  position: fixed;  
-  bottom: 0;  
-  background: rgba(255, 255, 255, 0.9);  
-  width: 100%;  
-  padding: 1rem 0;  
-  text-align: center;  
-  display: flex;  
-  justify-content: center;  
-  gap: 2rem;  
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);  
-}  
-  
-.navbar button {  
-  font-size: 1.8rem;  
-  background: none;  
-  border: none;  
-  cursor: pointer;  
-  color: #007BFF;  
-  transition: color 0.3s, transform 0.2s;  
-}  
-
-#timer-btn.active{
-  color: #0056b3;  
-  transform: scale(1.2);
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-#clock-btn.active{
-  color: #0056b3;  
+
+/* Body with gradient */
+body {
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(0,123,255,0.25));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar button {
+  font-size: 4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #007BFF;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.navbar button:hover,
+.navbar button.active {
+  color: #0056b3;
   transform: scale(1.2);
 }
 
-.navbar button:hover {  
-  color: #0056b3;  
-  transform: scale(1.2);  
-}  
-  
-.container {  
-  display: flex;  
-  flex-direction: column;  
-  align-items: center;  
-  justify-content: center;  
-  text-align: center;  
-  width: 90%;  
-  max-width: 400px;  
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 90%;
   min-height: 60vh;
-}  
-  
-.timer, .clock-card, .date {  
-  display: none;  
-}  
-  
-.clock-card.active,  
-.timer.active,  
-.date.active {  
-  display: block;  
-}  
-  
-.clock-card.active,  
-.timer.active {  
-  background: rgba(255, 255, 255, 0.05);  
-  backdrop-filter: blur(12px);  
-  border-radius: 15px;  
-  padding: 2.5rem;  
-  text-align: center;  
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);  
-  margin: 2rem 0;  
-  width: 100%;  
-}  
-  
-#clock {  
-  font-size: 2rem;  
-  font-weight: 200;  
- color: #17a2b8; 
-  letter-spacing: 2px;  
-  margin-bottom: 1rem;  
-}  
-  
-.date.active {  
-  display: block;  
-  font-size: 1.5rem;  
-  color: #000;  
-  margin-top: 1rem;  
-}  
+}
 
-#timer-display{
-  color: #17a2b8;
-  font-size: 1.5rem;
+/* Clock and timer cards */
+.clock-card,
+.timer {
+  display: none;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 5rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  margin: 2rem 0;
+}
+
+/* Show active card */
+.clock-card.active,
+.timer.active {
+  display: block;
+}
+
+/* Clock text */
+#clock {
+  font-size: 6rem;
   font-weight: 200;
-}  
-  
-.timer-buttons {  
-  margin-top: 1.5rem;  
-  display: flex;  
-  gap: 1rem;  
-  justify-content: center;  
-}  
+  color: #17a2b8;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+}
 
-.timer-buttons button {  
-  padding: 0.7rem 1.5rem;  
-  font-size: 1rem;  
-  border-radius: 10px;  
-  border: none;  
-  cursor: pointer;  
-  background: rgba(0, 123, 255, 0.2);  
-  color: #fff;  
-  transition: background 0.3s, transform 0.2s;  
-}  
+/* Date text */
+.date {
+  display: none;
+}
 
-.timer-buttons button:hover {  
-  background: rgba(0, 123, 255, 0.5);  
-  transform: scale(1.05);  
+.date.active {
+  display: block;
+  font-size: 4rem;
+  color: #000;
+  margin-top: 1rem;
+}
+
+/* Timer display */
+#timer-display {
+  font-size: 5rem;
+  font-weight: 200;
+  color: #17a2b8;
+}
+
+/* Timer buttons */
+.timer-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.timer-buttons button {
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: rgba(0, 123, 255, 0.2);
+  color: #fff;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.timer-buttons button:hover {
+  background: rgba(0, 123, 255, 0.5);
+  transform: scale(1.05);
+}
+
+/* Responsive fonts */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .navbar button{ font-size: 3rem;}
+  #clock { font-size: 4rem; }
+  #timer-display { font-size: 3.5rem; }
+  .date.active { font-size: 2.5rem; }
+  .timer-buttons button { font-size: 1rem; padding: 0.6rem 1.5rem; }
+  .clock-card, .timer { padding: 3rem; }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .navbar button{ font-size: 2rem;}
+  #clock { font-size: 2.3rem; }
+  #timer-display { font-size: 2.3rem; }
+  .date.active { font-size: 1.5rem; }
+  .timer-buttons button { font-size: 0.9rem; padding: 0.5rem 1rem; }
+  .clock-card, .timer { padding: 2rem; }
 }
